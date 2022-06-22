@@ -40,30 +40,16 @@ public class User {
 	@Column(name="UserID")
 	private int userID;
 	
-	@Column(name="Email")
+	@Column(name="UserName")
 	@Pattern(regexp="[a-zA-Z\\s]+$")
-	private String email;
+	private String username;
 	
 	@Column(name="Password")
 	@Pattern(regexp="[a-zA-Z\\s]+$")
 	private String password;
 	
-	@Column(name="UserName")
-	@Pattern(regexp="[a-zA-Z\\s]+$")
-	private String username;
-	
-	@Column(name="Address")
-	private String address;
-	
-	@Column(name="LoginStatus")
-	private boolean loginStatus=true;
-	
-	//Lietotāja balanss
-	
-	@Column(name="Balance")
-	@Min(value = 0)
-	@Max(value = 10000)
-	private double balance;
+	@Column(name="Active")
+	private boolean active;
 	
 	@ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
 	@CollectionTable(name = "userRole", joinColumns = @JoinColumn(name = "userId"))
@@ -75,26 +61,17 @@ public class User {
 	@JoinColumn(name="InventoryID")
 	private Inventory inventory;
 	
-	/*//Saite uz autentifikāciju
-	@ManyToMany(mappedBy = "users", fetch=FetchType.EAGER)
-	private Collection<UserAuthority> authorities;*/
-	
 	//Saite uz shoppingCart
 	@OneToOne
 	@JoinColumn(name="CartID")
 	private ShoppingCart shoppingCart;
 
-	public User(String email, String password, String username, String address,
-			boolean loginStatus, double balance, Inventory inventory) {
+	public User(String username, String password, boolean active) {
 		super();
-		this.email = email;
+		
 		this.password = password;
 		this.username = username;
-		this.address = address;
-		this.loginStatus = loginStatus;
-		this.balance = balance;
-		this.inventory = inventory;
+		this.active = active;
 		
-		//this.authorities = new ArrayList<UserAuthority>();
 	}
 }

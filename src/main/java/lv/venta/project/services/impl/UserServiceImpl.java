@@ -16,7 +16,7 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public boolean registerUser(User user) {
 		//Ja tāds lietotājs jau eksistē sistēmā
-		if(!userRepo.existsByUserNameAndEmail(user.getUsername(), user.getEmail())) {
+		if(!userRepo.existsByUsername(user.getUsername())) {
 			userRepo.save(user);
 			return true;
 		}
@@ -25,7 +25,7 @@ public class UserServiceImpl implements IUserService{
 
 	@Override
 	public boolean authoriseUser(User user) {
-		if(userRepo.existsByUserNameAndPassword(user.getUsername(), user.getPassword())) {
+		if(userRepo.existsByUsernameAndPassword(user.getUsername(), user.getPassword())) {
 			return true;
 		}
 		return false;

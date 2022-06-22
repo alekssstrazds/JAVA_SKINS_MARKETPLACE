@@ -6,11 +6,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import lv.venta.project.repos.IInventoryRepo;
-import lv.venta.project.repos.IItemRepo;
-import lv.venta.project.repos.IMarketRepo;
-import lv.venta.project.repos.IShoppingCartRepo;
-//import lv.venta.project.repos.IUserAuthorityRepo;
+import lv.venta.project.models.User;
 import lv.venta.project.repos.IUserRepo;
 
 @SpringBootApplication
@@ -22,14 +18,12 @@ public class JavaSkinsMarketplaceApplication {
 		SpringApplication.run(JavaSkinsMarketplaceApplication.class, args);
 	}
 	@Bean
-	public CommandLineRunner testdb(IInventoryRepo inventoryRepo, IItemRepo itemRepo,
-			IMarketRepo marketRepo, IShoppingCartRepo shoppingCartRepo,
-			IUserRepo userRepo) {
+	public CommandLineRunner testdb(IUserRepo userRepo) {
 		return new CommandLineRunner() {
 			@Override
 			public void run(String... args) throws Exception {
 				
-				
+				User us1 = new User("a", "a", true);
 			}
 		};
 	}
