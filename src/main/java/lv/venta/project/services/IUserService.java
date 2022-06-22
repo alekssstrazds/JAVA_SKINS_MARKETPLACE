@@ -1,5 +1,9 @@
 package lv.venta.project.services;
 
-public class IUserService {
+import lv.venta.project.models.User;
 
+public interface IUserService {
+	public boolean registerUser(User user);
+	public boolean authoriseUser(User user);
+	
 }

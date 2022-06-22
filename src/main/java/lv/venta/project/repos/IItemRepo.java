@@ -1,5 +1,9 @@
 package lv.venta.project.repos;
 
-public class IItemRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.venta.project.models.Item;
+
+public interface IItemRepo extends CrudRepository<Item, Integer> {
 
 }

@@ -8,8 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,10 +25,10 @@ import lombok.ToString;
 public class Market {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
-	@Column(name="Market_ID")
+	@Column(name="MarketID")
 	private int marketID;
 	
-	@Column(name= "gameType")
+	@Column(name= "GameType")
 	private GameType gameType;
 	
 	//Saite uz item

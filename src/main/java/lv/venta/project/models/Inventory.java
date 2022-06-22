@@ -9,8 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,10 +26,10 @@ import lombok.ToString;
 public class Inventory {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
-	@Column(name="Inventory_ID")
+	@Column(name="InventoryID")
 	private int inventoryID;
 	
-	@Column(name= "gameType")
+	@Column(name= "GameType")
 	private GameType gameType;
 	
 	//Saite uz user
@@ -39,7 +38,7 @@ public class Inventory {
 	private User user;
 	
 	//Saite uz item
-	@OneToMany(mappedBy="inventory")
+	@OneToMany(mappedBy="inventoryItem")
 	@ToString.Exclude
 	private Collection<Item> items;
 

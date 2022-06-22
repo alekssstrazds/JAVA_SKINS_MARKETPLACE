@@ -1,4 +1,4 @@
-package lv.venta.project.models;
+/*package lv.venta.project.models;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -27,20 +28,20 @@ import lombok.ToString;
 @Table(name="UserAuthority")
 
 public class UserAuthority {
-	@Column(name="Authority_ID")
+	@Column(name="AuthorityID")
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int authorityID;
 	
-	@Column(name="Authority_UserName")
+	@Column(name="AUserName")
 	private String authorityUserName;
 	
-	@Column(name="Authority_Password")
+	@Column(name="APassword")
 	private String authorityPassword;
 	
 	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name = "user_authorities", joinColumns = @JoinColumn(name = "Authority_ID"), 
-			  inverseJoinColumns = @JoinColumn(name = "User_ID"))
+	@JoinTable(name = "user_authorities", joinColumns = {@JoinColumn(name = "Authority_ID")}, 
+			  inverseJoinColumns = {@JoinColumn(name = "User_ID")})
 	private Collection<User> users;
 
 	public UserAuthority(Collection<User> users) {
@@ -66,4 +67,4 @@ public class UserAuthority {
 	{
 		users.add(user);
 	}
-}
+}*/

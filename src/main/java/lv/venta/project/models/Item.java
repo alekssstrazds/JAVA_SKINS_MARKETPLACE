@@ -14,9 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+
 import javax.validation.constraints.Pattern;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,31 +34,31 @@ import lombok.ToString;
 public class Item {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
-	@Column(name="Item_ID")
+	@Column(name="ItemID")
 	private int itemID;
 	
-	@Column(name="Item_SubType")
+	@Column(name="ItemSubType")
 	private String itemSubType;
 
-	@Column(name="Item_Name")
+	@Column(name="ItemName")
 	private String itemName;
 	
-	@Column(name="Pattern_IDs")
+	@Column(name="PatternIDs")
 	@Min(value = 0)
 	@Max(value = 1000)
 	private int patternIDs;
 	
-	@Column(name="Item_Float")
+	@Column(name="ItemFloat")
 	@Min(value = 0)
 	@Max(value = 1)
 	private float itemFloat;
 	
-	@Column(name="Item_Suggested_Price")
+	@Column(name="ItemSuggestedPrice")
 	@Min(value = 0)
 	@Max(value = 1000000)
 	private double itemSuggestedPrice;
 	
-	@Column(name="Item_Sale_Price")
+	@Column(name="ItemSalePrice")
 	@Min(value = 0)
 	@Max(value = 1000000)
 	private double itemSalePrice;
@@ -73,18 +74,18 @@ public class Item {
 	
 	//Saite uz inventory
 	@ManyToOne
-    @JoinColumn(name="Inventory_ID")
-    private Inventory inventory;
+    @JoinColumn(name="InventoryID")
+    private Inventory inventoryItem;
 	
 	//Saite uz market
 	@ManyToOne
-	@JoinColumn(name="Market_ID")
+	@JoinColumn(name="MarketID")
 	private Market market;
 	
 	//Saite uz ShoppingCart
 	@ManyToMany
-	@JoinTable(joinColumns=@JoinColumn(name="Item_ID"),
-	inverseJoinColumns=@JoinColumn(name="Cart_ID"))
+	@JoinTable(joinColumns=@JoinColumn(name="ItemID"),
+	inverseJoinColumns=@JoinColumn(name="CartID"))
 	private Collection<ShoppingCart> carts = new ArrayList<ShoppingCart>();
 
 	public Item(String itemSubType, String itemName, int patternIDs, float itemFloat,

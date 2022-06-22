@@ -9,8 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,10 +26,10 @@ import lombok.ToString;
 public class ShoppingCart {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
-	@Column(name="Cart_ID")
+	@Column(name="CartID")
 	private int cartID;
 	
-	@Column(name= "gameType")
+	@Column(name= "GameType")
 	private GameType gameType;
 	
 	//Saite uz user

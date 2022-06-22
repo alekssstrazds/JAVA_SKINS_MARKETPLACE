@@ -1,5 +1,5 @@
 package lv.venta.project.services;
 
-public class IFilterItemService {
+public interface IFilterItemService {
 
 }

@@ -1,5 +1,9 @@
 package lv.venta.project.repos;
 
-public class IShoppingCartRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.venta.project.models.ShoppingCart;
+
+public interface IShoppingCartRepo extends CrudRepository<ShoppingCart, Integer>{
 
 }

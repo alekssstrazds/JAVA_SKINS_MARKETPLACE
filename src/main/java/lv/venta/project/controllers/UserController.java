@@ -1,5 +1,10 @@
 package lv.venta.project.controllers;
 
-public class UserController {
+import org.springframework.stereotype.Controller;
 
+
+
+@Controller
+public class UserController {
+	
 }

@@ -2,9 +2,14 @@ package lv.venta.project.models;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +20,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,7 +37,7 @@ import lombok.ToString;
 public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
-	@Column(name="User_ID")
+	@Column(name="UserID")
 	private int userID;
 	
 	@Column(name="Email")
@@ -44,39 +48,40 @@ public class User {
 	@Pattern(regexp="[a-zA-Z\\s]+$")
 	private String password;
 	
-	@Column(name="User_Name")
+	@Column(name="UserName")
 	@Pattern(regexp="[a-zA-Z\\s]+$")
 	private String username;
 	
 	@Column(name="Address")
 	private String address;
 	
-	@Column(name="Login_Status")
+	@Column(name="LoginStatus")
 	private boolean loginStatus=true;
 	
 	//Lietotāja balanss
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Id
-	@Column(name="Balance_ID")
-	private int balanceID;
 	
 	@Column(name="Balance")
 	@Min(value = 0)
 	@Max(value = 10000)
 	private double balance;
 	
+	@ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
+	@CollectionTable(name = "userRole", joinColumns = @JoinColumn(name = "userId"))
+	@Enumerated(EnumType.STRING)
+	private Set<Roles> role;
+	
 	//Saite uz inventory
 	@OneToOne
-	@JoinColumn(name="Inventory_ID")
+	@JoinColumn(name="InventoryID")
 	private Inventory inventory;
 	
-	//Saite uz autentifikāciju
+	/*//Saite uz autentifikāciju
 	@ManyToMany(mappedBy = "users", fetch=FetchType.EAGER)
-	private Collection<UserAuthority> authorities;
+	private Collection<UserAuthority> authorities;*/
 	
 	//Saite uz shoppingCart
 	@OneToOne
-	@JoinColumn(name="Cart_ID")
+	@JoinColumn(name="CartID")
 	private ShoppingCart shoppingCart;
 
 	public User(String email, String password, String username, String address,
@@ -90,6 +95,6 @@ public class User {
 		this.balance = balance;
 		this.inventory = inventory;
 		
-		this.authorities = new ArrayList<UserAuthority>();
+		//this.authorities = new ArrayList<UserAuthority>();
 	}
 }
