@@ -40,10 +40,22 @@ public class Inventory {
 	//Saite uz item
 	@OneToMany(mappedBy="inventoryItem")
 	@ToString.Exclude
-	private Collection<Item> items;
+	private Collection<Item> inventoryItems;
+	
+	public void addNewItemToInventory(Item item) {
+		inventoryItems.add(item);
+	}
 
 	public Inventory(GameType gameType) {
 		super();
 		this.gameType = gameType;
 	}
+
+	@Override
+	public String toString() {
+		return "Inventory [inventoryID=" + inventoryID + ", gameType=" + gameType + ", user=" + user + "]";
+	}
+	
+	
+	
 }

@@ -56,12 +56,12 @@ public class Item {
 	@Column(name="ItemSuggestedPrice")
 	@Min(value = 0)
 	@Max(value = 1000000)
-	private double itemSuggestedPrice;
+	private float itemSuggestedPrice;
 	
 	@Column(name="ItemSalePrice")
 	@Min(value = 0)
 	@Max(value = 1000000)
-	private double itemSalePrice;
+	private float itemSalePrice;
 	
 	@Column(name= "ItemType")
 	private ItemType itemType;
@@ -89,7 +89,7 @@ public class Item {
 	private Collection<ShoppingCart> carts = new ArrayList<ShoppingCart>();
 
 	public Item(String itemSubType, String itemName, int patternIDs, float itemFloat,
-			double itemSuggestedPrice, double itemSalePrice, ItemType itemType,
+			float itemSuggestedPrice, float itemSalePrice, ItemType itemType,
 			ItemRarity itemRarity, ItemQuality itemQuality) {
 		super();
 		this.itemSubType = itemSubType;

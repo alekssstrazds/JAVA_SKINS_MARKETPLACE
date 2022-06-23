@@ -1,4 +1,4 @@
-package lv.venta.project.config;
+/*package lv.venta.project.config;
 
 
 
@@ -54,4 +54,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.usersByUsernameQuery("select username, password, active from usr where username=?")
 			.authoritiesByUsernameQuery("select u.username, ur.role from usr u inner join userRole ur on u.id = ur.userId where u.username=?");
 	}
-}
+}*/

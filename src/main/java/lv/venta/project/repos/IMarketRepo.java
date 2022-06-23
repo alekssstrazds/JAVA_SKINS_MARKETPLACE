@@ -2,12 +2,13 @@ package lv.venta.project.repos;
 
 import java.util.ArrayList;
 
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
 
 import lv.venta.project.models.Item;
 import lv.venta.project.models.Market;
 
-public interface IMarketRepo extends CrudRepository<Market, Integer> {
+public interface IMarketRepo extends CrudRepository<Market, Integer>, JpaSpecificationExecutor<Item> {
 	
 	public ArrayList<Item> findByItemName(String itemName);
 }

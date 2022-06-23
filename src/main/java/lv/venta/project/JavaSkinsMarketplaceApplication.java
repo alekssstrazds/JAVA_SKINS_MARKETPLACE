@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import lv.venta.project.models.User;
 import lv.venta.project.repos.IUserRepo;
 
 @SpringBootApplication
@@ -23,7 +22,7 @@ public class JavaSkinsMarketplaceApplication {
 			@Override
 			public void run(String... args) throws Exception {
 				
-				User us1 = new User("a", "a", true);
+				
 			}
 		};
 	}

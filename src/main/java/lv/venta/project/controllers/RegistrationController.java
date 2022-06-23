@@ -1,4 +1,4 @@
-package lv.venta.project.controllers;
+/*package lv.venta.project.controllers;
 
 import java.util.Collections;
 import java.util.Map;
@@ -37,4 +37,4 @@ public class RegistrationController {
 		return "redirect:/login";
 	}
 
-}
+}*/

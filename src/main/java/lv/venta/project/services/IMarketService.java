@@ -1,12 +1,14 @@
 package lv.venta.project.services;
 
-import java.util.ArrayList;
+
+import org.springframework.data.jpa.domain.Specification;
 
 import lv.venta.project.models.Item;
 
 public interface IMarketService {
-	//Atgriezt visus item
-	public ArrayList<Item> getAllItems();
 	//atrast iekš marketa item pēc itemName
-	public ArrayList<Item> getAllItemsByItemName(String itemName) throws Exception;
+	public Specification<Item> searchItemNameSpecification(String search) throws Exception;
+	//pievienot item no market
+	public void cancelItemByIdFromMarketByIdToInventoryById(int itemID, int inventoryID, int marketID) throws Exception;
+	
 }

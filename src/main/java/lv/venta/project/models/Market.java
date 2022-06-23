@@ -34,8 +34,12 @@ public class Market {
 	//Saite uz item
 	@OneToMany(mappedBy="market")
 	@ToString.Exclude
-	private Collection<Item> items;
+	private Collection<Item> marketItems;
 
+	public void addNewItemToMarket(Item item) {
+		marketItems.add(item);
+	}
+	
 	public Market(GameType gameType) {
 		super();
 		this.gameType = gameType;
