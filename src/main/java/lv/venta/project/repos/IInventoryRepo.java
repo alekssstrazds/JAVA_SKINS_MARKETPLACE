@@ -6,6 +6,6 @@ import lv.venta.project.models.Inventory;
 import lv.venta.project.models.Item;
 
 public interface IInventoryRepo extends CrudRepository<Inventory, Integer> {
-	void addNewItemToInventoryItem(Item item);
+	Inventory findByInventoryItems(int inventoryID);
 
 }

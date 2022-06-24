@@ -36,9 +36,6 @@ public class Item {
 	@Id
 	@Column(name="ItemID")
 	private int itemID;
-	
-	@Column(name="ItemSubType")
-	private String itemSubType;
 
 	@Column(name="ItemName")
 	private String itemName;
@@ -51,17 +48,20 @@ public class Item {
 	@Column(name="ItemFloat")
 	@Min(value = 0)
 	@Max(value = 1)
-	private float itemFloat;
+	private double itemFloat;
 	
 	@Column(name="ItemSuggestedPrice")
 	@Min(value = 0)
 	@Max(value = 1000000)
-	private float itemSuggestedPrice;
+	private double itemSuggestedPrice;
 	
 	@Column(name="ItemSalePrice")
 	@Min(value = 0)
 	@Max(value = 1000000)
-	private float itemSalePrice;
+	private double itemSalePrice;
+	
+	@Column(name= "ItemSubType")
+	private ItemSubType itemSubType;
 	
 	@Column(name= "ItemType")
 	private ItemType itemType;
@@ -88,8 +88,8 @@ public class Item {
 	inverseJoinColumns=@JoinColumn(name="CartID"))
 	private Collection<ShoppingCart> carts = new ArrayList<ShoppingCart>();
 
-	public Item(String itemSubType, String itemName, int patternIDs, float itemFloat,
-			float itemSuggestedPrice, float itemSalePrice, ItemType itemType,
+	public Item(ItemSubType itemSubType, String itemName, int patternIDs, double itemFloat,
+			double itemSuggestedPrice, double itemSalePrice, ItemType itemType,
 			ItemRarity itemRarity, ItemQuality itemQuality) {
 		super();
 		this.itemSubType = itemSubType;

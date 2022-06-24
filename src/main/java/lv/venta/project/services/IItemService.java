@@ -2,7 +2,9 @@ package lv.venta.project.services;
 
 import java.util.ArrayList;
 
+import lv.venta.project.models.Inventory;
 import lv.venta.project.models.Item;
+import lv.venta.project.models.Market;
 import lv.venta.project.models.User;
 
 public interface IItemService {

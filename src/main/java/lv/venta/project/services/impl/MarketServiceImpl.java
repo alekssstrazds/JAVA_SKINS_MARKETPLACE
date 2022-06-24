@@ -30,16 +30,30 @@ public class MarketServiceImpl implements IMarketService{
 	private IItemService itemService;
 	
 	public Specification<Item> searchItemNameSpecification(String search) throws Exception {
-		return itemRepo.findAllByItemName(search);
+		Specification<Item> searchResult = itemRepo.findByItemNameContainingIgnoreCase(search);
+	    if(searchResult != null){
+	    	throw new Exception("ID nav atrasts...");
+	    }
+	    return searchResult;
+	}
+	
+	@Override
+	public void addItemToInventory(Item item, Inventory inventory) throws Exception {
+		if(!inventoryRepo.existsById(item.getInventoryItem().getInventoryID())) {
+			inventory.addItemToInventory(item);
+		} throw new Exception("itemID jau eksistē...");
 	}
 
 	@Override
-	public void cancelItemByIdFromMarketByIdToInventoryById(int itemID, int inventoryID, int marketID) throws Exception {
-		Item item = itemRepo.findById(itemID).get();
-		Inventory inventory = inventoryRepo.findById(inventoryID).get();
-		itemService.deleteItemByIdFromMarketById(itemID, item.getMarket().getMarketID());
-		if(inventoryRepo.existsById(inventoryID)) {
-			inventory.addNewItemToInventory(item);
-		} throw new Exception("ID nav atrasts...");
+	public void cancelItemByIdFromMarketByIdToInventoryById(int itemID) throws Exception {
+		if(itemRepo.existsById(itemID)) {
+			Item item = itemRepo.findById(itemID).get();
+			//Inventory inventory = inventoryRepo.findById().get();
+			Inventory inventory = inventoryRepo.findByInventoryItems(item.getInventoryItem().getInventoryID());
+			itemService.deleteItemByIdFromMarketById(itemID, item.getMarket().getMarketID());
+			if(inventoryRepo.existsById(inventory.getInventoryID())) {
+				addItemToInventory(item, inventory);
+			} 
+		} throw new Exception("ID nav atrasts...");	
 	}
 }

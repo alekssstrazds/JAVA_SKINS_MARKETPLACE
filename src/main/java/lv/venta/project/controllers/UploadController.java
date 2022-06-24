@@ -1,4 +1,4 @@
-package lv.venta.project.controllers;
+/*package lv.venta.project.controllers;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,4 +36,4 @@ public class UploadController {
   }
   
   
-}
+}*/

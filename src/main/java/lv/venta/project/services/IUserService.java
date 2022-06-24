@@ -15,6 +15,7 @@ public interface IUserService {
 	public void updateUserById(int id, User temp) throws Exception;
 	//izdzēst user pēc id
 	public void deleteUserById(int id) throws Exception;
+	//atjaunot user balansu
 	
 	
 	

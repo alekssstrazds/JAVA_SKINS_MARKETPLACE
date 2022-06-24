@@ -42,19 +42,24 @@ public class Inventory {
 	@ToString.Exclude
 	private Collection<Item> inventoryItems;
 	
-	public void addNewItemToInventory(Item item) {
+	public void addItemToInventory(Item item) {
 		inventoryItems.add(item);
 	}
 
-	public Inventory(GameType gameType) {
+	public Inventory(GameType gameType, User user) {
 		super();
 		this.gameType = gameType;
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
 		return "Inventory [inventoryID=" + inventoryID + ", gameType=" + gameType + ", user=" + user + "]";
 	}
+
+
+
+	
 	
 	
 	

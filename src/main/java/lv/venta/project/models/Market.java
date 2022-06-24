@@ -36,7 +36,7 @@ public class Market {
 	@ToString.Exclude
 	private Collection<Item> marketItems;
 
-	public void addNewItemToMarket(Item item) {
+	public void addItemToMarket(Item item) {
 		marketItems.add(item);
 	}
 	

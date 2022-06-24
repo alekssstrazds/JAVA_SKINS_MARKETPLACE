@@ -17,8 +17,6 @@ public class InventoryServiceImpl implements IInventoryService{
 
 	@Autowired
 	private IItemRepo itemRepo;
-	@Autowired
-	private IInventoryRepo inventoryRepo;
 	
 	@Autowired 
 	private IMarketRepo marketRepo;
@@ -28,13 +26,22 @@ public class InventoryServiceImpl implements IInventoryService{
 	
 	
 	@Override
-	public void saleItemByIdFromInventoryByIdToMarketById(int itemID, int inventoryID, int marketID) throws Exception {
-		Item item = itemRepo.findById(itemID).get();
-		Market market = marketRepo.findById(marketID).get();
-		itemService.deleteItemByIdFromInventoryById(itemID, item.getInventoryItem().getInventoryID());
-		if(marketRepo.existsById(marketID)) {
-			market.addNewItemToMarket(item);
-		} throw new Exception("ID nav atrasts...");
+	public void addItemToMarket(Item item, Market market) throws Exception {
+		if(!marketRepo.existsById(item.getMarket().getMarketID())) {
+			addItemToMarket(item, market);
+		} throw new Exception("itemID jau eksistē...");
+		
 	}
 	
+	@Override
+	public void saleItemByIdFromInventoryByIdToMarketById(int itemID) throws Exception {
+		if(itemRepo.existsById(itemID)) {
+			Item item = itemRepo.findById(itemID).get();
+			Market market = marketRepo.findById(item.getMarket().getMarketID()).get();
+			itemService.deleteItemByIdFromInventoryById(itemID, item.getInventoryItem().getInventoryID());
+			if(marketRepo.existsById(item.getMarket().getMarketID())) {
+				addItemToMarket(item, market);
+			} 
+		} throw new Exception("ID nav atrasts...");	
+	}
 }

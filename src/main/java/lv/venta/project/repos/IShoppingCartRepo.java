@@ -7,7 +7,6 @@ import lv.venta.project.models.ShoppingCart;
 
 public interface IShoppingCartRepo extends CrudRepository<ShoppingCart, Integer>{
 
-	@Query(value = "SELECT SUM(m.tests) FROM report_data m", nativeQuery = true)
-	public float calculateSUMItemSalePriceByCartID(int id);
+	
 
 }

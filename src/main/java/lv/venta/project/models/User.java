@@ -30,15 +30,15 @@ public class User {
 	private int userID;
 	
 	@Column(name="Email")
-	@Pattern(regexp="[a-zA-Z\\s]+$")
+	//@Pattern(regexp="[a-zA-Z\\s]+$")
 	private String email;
 	
 	@Column(name="UserName")
-	@Pattern(regexp="[a-zA-Z\\s]+$")
+	//@Pattern(regexp="[a-zA-Z\\s]+$")
 	private String username;
 	
 	@Column(name="Password")
-	@Pattern(regexp="[a-zA-Z\\s]+$")
+	//@Pattern(regexp="[a-zA-Z\\s]+$")
 	private String password;
 	
 	@Column(name="Address")

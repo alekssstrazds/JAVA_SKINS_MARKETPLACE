@@ -10,6 +10,7 @@ import lv.venta.project.models.Item;
 import lv.venta.project.models.ItemQuality;
 import lv.venta.project.models.ItemRarity;
 import lv.venta.project.models.ItemType;
+import lv.venta.project.models.Market;
 import lv.venta.project.models.User;
 import lv.venta.project.repos.IInventoryRepo;
 import lv.venta.project.repos.IItemRepo;
@@ -39,7 +40,7 @@ public class ItemServiceImpl implements IItemService{
 	            Item item = itemRepo.findById(itemID).get();
 	            Inventory inventory = inventoryRepo.findById(inventoryID).get();
 	            deleteItemByIdFromInventoryById(itemID, item.getInventoryItem().getInventoryID());
-	            inventory.addNewItemToInventory(item);
+	            inventory.addItemToInventory(item);
 	            
 	        } throw new Exception("ID nav atrasts...");
 	}
