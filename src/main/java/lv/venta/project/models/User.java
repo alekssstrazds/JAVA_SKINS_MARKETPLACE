@@ -64,7 +64,7 @@ public class User {
 	@JoinColumn(name="CartID")
 	private ShoppingCart shoppingCart;
 
-	public User(String email, String username, String password, String address, boolean active, double balance) {
+	public User(String email, String username, String password, String address, boolean active, double balance, Inventory inventory) {
 		super();
 		this.email = email;
 		this.username = username;
@@ -72,6 +72,8 @@ public class User {
 		this.address = address;
 		this.active = active;
 		this.balance = balance;
+		
+		this.inventory = inventory;
 	}
 
 	public boolean getActive() {

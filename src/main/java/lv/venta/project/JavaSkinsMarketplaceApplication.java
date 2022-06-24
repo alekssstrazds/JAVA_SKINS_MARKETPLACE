@@ -34,19 +34,6 @@ public class JavaSkinsMarketplaceApplication {
 		return new CommandLineRunner() {
 			@Override
 			public void run(String... args) throws Exception {
-				User user1 = new User("peteris.inukels@gmail.com", "Inkulens", "snelukni111", "liepu iela 4", true, 0.0);
-				User user2 = new User("marks.iemesls@gmail.com", "Mar1ks", "11markusins", "sportu iela 1", true, 100.0);
-				User user3 = new User("grieta.skata@gmail.com", "Grietas", "grieta.111", "auzu iela 6", true, 1.0);
-				userRepo.save(user1);
-				userRepo.save(user2);
-				userRepo.save(user3);
-				
-				Inventory inventory1 = new Inventory(GameType.CSGO, user1);
-				Inventory inventory2 = new Inventory(GameType.CSGO, user2);
-				Inventory inventory3 = new Inventory(GameType.CSGO, user3);
-				inventoryRepo.save(inventory1);
-				inventoryRepo.save(inventory2);
-				inventoryRepo.save(inventory3);
 				
 				Market marketCSGO = new Market(GameType.CSGO);
 				Market marketDOTA = new Market(GameType.DOTA);
@@ -74,7 +61,15 @@ public class JavaSkinsMarketplaceApplication {
 				itemRepo.save(item8);
 				itemRepo.save(item9);
 				
-				/*inventory1.addItemToInventory(item1);
+				Inventory inventory1 = new Inventory(GameType.CSGO);
+				Inventory inventory2 = new Inventory(GameType.CSGO);
+				Inventory inventory3 = new Inventory(GameType.CSGO);
+				inventoryRepo.save(inventory1);
+				inventoryRepo.save(inventory2);
+				inventoryRepo.save(inventory3);
+				
+				
+				inventory1.addItemToInventory(item1);
 				inventory2.addItemToInventory(item2);
 				inventory3.addItemToInventory(item3);
 				inventory1.addItemToInventory(item4);
@@ -85,8 +80,14 @@ public class JavaSkinsMarketplaceApplication {
 				inventory3.addItemToInventory(item9);
 				inventoryRepo.save(inventory1);
 				inventoryRepo.save(inventory2);
-				inventoryRepo.save(inventory3);*/
+				inventoryRepo.save(inventory3);
 				
+				User user1 = new User("peteris.inukels@gmail.com", "Inkulens", "snelukni111", "liepu iela 4", true, 0.0, inventory1);
+				User user2 = new User("marks.iemesls@gmail.com", "Mar1ks", "11markusins", "sportu iela 1", true, 100.0, inventory2);
+				User user3 = new User("grieta.skata@gmail.com", "Grietas", "grieta.111", "auzu iela 6", true, 1.0, inventory3);
+				userRepo.save(user1);
+				userRepo.save(user2);
+				userRepo.save(user3);
 				
 			}
 		};

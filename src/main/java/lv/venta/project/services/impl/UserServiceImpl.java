@@ -26,7 +26,7 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User insertNewUser(User user) {
 		User newUser = new User(user.getEmail(), user.getUsername(), user.getPassword(),
-				user.getAddress(), user.getActive(), user.getBalance());
+				user.getAddress(), user.getActive(), user.getBalance(), user.getInventory());
 		User userFromDB = userRepo.save(newUser);
 		return userFromDB;
 	}

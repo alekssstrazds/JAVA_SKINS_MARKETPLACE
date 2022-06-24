@@ -1,5 +1,6 @@
 package lv.venta.project.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -40,16 +41,15 @@ public class Inventory {
 	//Saite uz item
 	@OneToMany(mappedBy="inventoryItem")
 	@ToString.Exclude
-	private Collection<Item> inventoryItems;
+	private Collection<Item> inventoryItems = new ArrayList<Item>();
 	
 	public void addItemToInventory(Item item) {
-		inventoryItems.add(item);
+		this.inventoryItems.add(item);
 	}
 
-	public Inventory(GameType gameType, User user) {
+	public Inventory(GameType gameType) {
 		super();
 		this.gameType = gameType;
-		this.user = user;
 	}
 
 	@Override
@@ -60,7 +60,5 @@ public class Inventory {
 
 
 	
-	
-	
-	
+
 }
