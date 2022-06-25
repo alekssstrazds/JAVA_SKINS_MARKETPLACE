@@ -1,9 +1,129 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <body>
-        <div> 
-        	<form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="../../resources/static/css/style.css">
+  </head>
+  <body>
+    <div>
+      <link rel="stylesheet" href="../../resources/static/css/market.css">
+
+      <div class="market-container">
+        <div class="market-container01">
+          <div class="market-container02">
+            <div class="market-container03">
+              <span class="market-text">LOGO</span>
+              <input
+                type="text"
+                placeholder="Search"
+                class="market-input input"
+              />
+              <select class="market-select">
+                <option value="Select-Inventory">My items</option>
+                <option value="Select-Sale-Items">My active list</option>
+                <option value="Select-Settings">Settings</option>
+                <option value="Select-Balance">Seller account</option>
+                <option value="Select-Log-Out">Log out</option>
+              </select>
+              <span class="market-text01"><span>SELL</span></span>
+              <button class="market-button button">
+                <span class="market-text03">Cart items: 1</span>
+              </button>
+            </div>
+          </div>
+          <div class="market-container04">
+            <h1 class="market-text04">FILTER</h1>
+            <div class="market-container05">
+              <h1 class="market-text05">KNIFE</h1>
+            </div>
+            <h1 class="market-text06">PISTOL</h1>
+            <h1 class="market-text07">RIFLE</h1>
+            <h1 class="market-text08">SMG</h1>
+            <h1 class="market-text09">HEAVY</h1>
+          </div>
         </div>
-    </body>
+        <div class="market-container06">
+          <div class="market-container07">
+            <span class="market-text10">Price</span>
+            <div class="market-container09">
+              <input
+                type="text"
+                placeholder="from"
+                class="market-textinput input"
+              />
+              <input
+                type="text"
+                placeholder="to"
+                class="market-textinput1 input"
+              />
+            </div>
+            <span class="market-text13">Exterior</span>
+            <div class="market-container10">
+              <input type="checkbox" checked="true" class="market-checkbox" />
+              <span class="market-text14">Factory New</span>
+            </div>
+            <div class="market-container11">
+              <input type="checkbox" checked="true" class="market-checkbox1" />
+              <span class="market-text18">Minimal Wear</span>
+            </div>
+            <div class="market-container12">
+              <input type="checkbox" checked="true" class="market-checkbox2" />
+              <span class="market-text19">Field-Tested</span>
+            </div>
+            <div class="market-container13">
+              <input type="checkbox" checked="true" class="market-checkbox3" />
+              <span class="market-text20">Well-Worn</span>
+            </div>
+            <div class="market-container14">
+              <input type="checkbox" checked="true" class="market-checkbox4" />
+              <span class="market-text21">Battle-Scarred</span>
+            </div>
+          </div>
+          <div class="market-container15">
+            <span class="market-text22"><span>CSGO</span></span>
+            <span class="market-text24"><span>111 items</span></span>
+            <select class="market-select1">
+              <option value="Option 1">Best value</option>
+              <option value="Option 2">Cheapest first</option>
+              <option value="Option 3">Expensive first</option>
+              <option value="New Option">Lowest wear</option>
+              <option value="New Option">Highest wear</option>
+            </select>
+          </div>
+        </div>
+        <div class="market-container16"></div>
+            <div class="market-container17"></div>
+            
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -12,7 +12,7 @@ import lv.venta.project.services.IItemService;
 import lv.venta.project.services.IMarketService;
 
 @Controller
-@RequestMapping("/market")
+@RequestMapping("/") //localhost:8080/
 public class MarketController {
 	@Autowired
 	private IMarketService marketService;
@@ -25,7 +25,7 @@ public class MarketController {
 	public String main(Model model) {
 		try
 		{
-			model.addAttribute("package", itemService.getAllItem());
+			model.addAttribute("package-all", itemService.getAllItem());
 			return "market-page";
 		}
 		catch (Exception e) {
@@ -36,7 +36,7 @@ public class MarketController {
 	@GetMapping("/search/{name}")
 	public String getSearchedItemName(@RequestParam(name="name") String name, Model model) {
 		try {
-            model.addAttribute("package", marketService.searchItemNameSpecification(name));
+            model.addAttribute("package-search", marketService.searchItemNameSpecification(name));
             return "market-page";
         } catch (Exception e) {
             model.addAttribute("errorMsg", e.getMessage());
