@@ -29,7 +29,7 @@ public class UserController {
     {
         try {
             ArrayList<User> list= userService.getAllUsers();
-            model.addAttribute("package-user", list);
+            model.addAttribute("packageuser", list);
             return "user-all-page";
         } catch (Exception e) {
             model.addAttribute("errorMsg", e.getMessage());
@@ -41,7 +41,7 @@ public class UserController {
     {
         try {
             User temp = userService.getUserById(id);
-            model.addAttribute("package-userbyid", temp);
+            model.addAttribute("packageuserbyid", temp);
             return "user-by-id-page"; 
         } catch (Exception e) {
             model.addAttribute("errorMsg", e.getMessage());
@@ -94,7 +94,7 @@ public class UserController {
     public String UserDelete(@PathVariable(name="id") int id, Model model) {
         try {
             userService.deleteUserById(id);
-            model.addAttribute("package-user-delete", userService.getAllUsers());
+            model.addAttribute("packageuserdelete", userService.getAllUsers());
             return "user-all-page";
         } catch (Exception e) {
             e.printStackTrace();

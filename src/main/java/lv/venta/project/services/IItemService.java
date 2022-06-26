@@ -24,5 +24,7 @@ public interface IItemService {
     public void deleteItemByIdFromInventoryById(int itemID, int inventoryID) throws Exception;
     //izdzēš item no market
     public void deleteItemByIdFromMarketById(int itemID, int marketID) throws Exception;
-       
+    //saskaita item daudzumu iekš repo
+    public long getItemCount();
+  
 }

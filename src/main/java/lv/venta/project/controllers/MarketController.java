@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lv.venta.project.models.Item;
+import lv.venta.project.models.User;
 import lv.venta.project.services.IInventoryService;
 import lv.venta.project.services.IItemService;
 import lv.venta.project.services.IMarketService;
 
 @Controller
-@RequestMapping("/market") //localhost:8080/market
+//@RequestMapping("/market") //localhost:8080/market
 public class MarketController {
 	@Autowired
 	private IMarketService marketService;
@@ -24,12 +25,17 @@ public class MarketController {
 	@Autowired
 	private IItemService itemService;
 	
-	@GetMapping("/")
-	public String getAllItems(Model model) {
+	@GetMapping("/market")
+	public String AllItems(Model model) {
 		try
 		{
 			ArrayList<Item> list = itemService.getAllItem();
-			model.addAttribute("package-all", list);
+			int id = 17;
+		    Item temp = itemService.getItemById(id);
+			
+			model.addAttribute("packageitemall", list);
+			model.addAttribute("packageitem", temp);
+			model.addAttribute("packagecount", itemService.getItemCount());
 			return "market-page";
 		}
 		catch (Exception e) {
@@ -37,10 +43,10 @@ public class MarketController {
 			return "error-page";
 		}
 	}
-	@GetMapping("/search={name}")
-	public String getSearchedItemName(@RequestParam(name="name") String name, Model model) {
+	@GetMapping("/search/{name}")
+	public String SearchedItemName(@RequestParam(name="name") String name, Model model) {
 		try {
-            model.addAttribute("package-search", marketService.searchItemNameSpecification(name));
+            model.addAttribute("packagesearch", marketService.searchItemNameSpecification(name));
             return "market-page";
         } catch (Exception e) {
             model.addAttribute("errorMsg", e.getMessage());

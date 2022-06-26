@@ -19,7 +19,7 @@
         text-transform: none;
         letter-spacing: normal;
         line-height: 1.15;
-        color: var(--dl-color-gray-black);
+        color:white;
         background-color: var(--dl-color-gray-white);
 
       }
@@ -108,7 +108,7 @@
           </div>
           <div class="market-container15">
             <span class="market-text22"><span>CSGO</span></span>
-            <span class="market-text24"><span>111 items</span></span>
+            <span class="market-text24"><span th:text="${packagecount}"></span><span> items</span></span>
             <select class="market-select1">
               <option value="Option 1">Best value</option>
               <option value="Option 2">Cheapest first</option>
@@ -118,10 +118,24 @@
             </select>
           </div>
         </div>
-        <div class="market-container16"></div>
-            <div class="market-container17"></div>
-         
+        <div class="market-container16">
+           <div class="market-container17">
+            <div class="market-container18">
+              <img src="https://community.cloudflare.steamstatic.com/economy/image/class/730/722403808/256x128" alt="★ Karambit | Tiger Tooth (Factory New)"/>
+              <div class="market-container19">
+            	<span class="market-text25">
+	             	<p th:text="${packageitem.getItemType()}" > </p>
+					<p th:text="${packageitem.getItemName()}" > </p>
+					<p th:text="${packageitem.getPatternIDs()}" > </p>
+					<p th:text="${packageitem.getItemFloat()}" > </p>
+					<p th:text="${packageitem.getItemSuggestedPrice()}" > </p> 
+					<p th:text="${packageitem.getItemSalePrice()}" > </p>
+					<p th:text="${packageitem.getItemRarity()}" > </p>
+					<p th:text="${packageitem.getItemQuality()}" > </p>
+            	</span>
             </div>
+            </div>
+           </div>
         </div>
       </div>
     </div>

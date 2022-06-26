@@ -2,7 +2,7 @@
 	<body>
 	<p>All users: </p>
 	 <table>
-		<tr th:each="user : ${package-user}">
+		<tr th:each="user : ${packageuser}">
 		<td th:text="${user.getUserID()}" > </td>
 		<td th:text="${user.getEmail()}" > </td>
 		<td th:text="${user.getUsername()}" > </td>

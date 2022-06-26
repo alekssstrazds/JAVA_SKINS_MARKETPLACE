@@ -75,7 +75,7 @@ public class JavaSkinsMarketplaceApplication {
 				itemRepo.save(item7);
 				itemRepo.save(item8);
 				itemRepo.save(item9);
-				
+			
 				User user1 = new User("peteris.inukels@gmail.com", "Inkulens", "snelukni111", "liepu iela 4", true, 0.0, inventory1, cart1);
 				User user2 = new User("marks.iemesls@gmail.com", "Mar1ks", "11markusins", "sportu iela 1", true, 100.0, inventory2, cart2);
 				User user3 = new User("grieta.skata@gmail.com", "Grietas", "grieta.111", "auzu iela 6", true, 1.0, inventory3, cart3);

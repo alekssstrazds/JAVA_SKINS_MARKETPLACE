@@ -111,4 +111,8 @@ public class ItemServiceImpl implements IItemService{
 	            throw new Exception("ID nav atrasts...");
 	        } 
 	}
+	@Override
+	public long getItemCount() {
+        return itemRepo.count();
+    }
 }

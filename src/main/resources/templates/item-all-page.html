@@ -2,7 +2,7 @@
 	<body>
 	<p>All items: </p>
 	 <table>
-		<tr th:each="item : ${package-all}">
+		<tr th:each="item : ${packageall}">
 		<td th:text="${item.getItemSubType()}" > </td>
 		<td th:text="${item.getItemName()}" > </td>
 		<td th:text="${item.getItemQuality()}" > </td>
