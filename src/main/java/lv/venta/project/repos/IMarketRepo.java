@@ -10,7 +10,7 @@ import lv.venta.project.models.GameType;
 import lv.venta.project.models.Item;
 import lv.venta.project.models.Market;
 
-public interface IMarketRepo extends JpaRepository<Market, Integer>, JpaSpecificationExecutor<Item> {
+public interface IMarketRepo extends CrudRepository<Market, Integer>, JpaSpecificationExecutor<Item> {
 
 	public boolean existsByGameType(GameType gameType);
 }

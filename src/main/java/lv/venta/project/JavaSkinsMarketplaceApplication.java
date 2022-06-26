@@ -14,6 +14,7 @@ import lv.venta.project.models.ItemRarity;
 import lv.venta.project.models.ItemSubType;
 import lv.venta.project.models.ItemType;
 import lv.venta.project.models.Market;
+import lv.venta.project.models.ShoppingCart;
 import lv.venta.project.models.User;
 import lv.venta.project.repos.IInventoryRepo;
 import lv.venta.project.repos.IItemRepo;
@@ -68,7 +69,13 @@ public class JavaSkinsMarketplaceApplication {
 				inventoryRepo.save(inventory2);
 				inventoryRepo.save(inventory3);
 				
-				
+				ShoppingCart cart1 = new ShoppingCart(GameType.CSGO);
+				ShoppingCart cart2 = new ShoppingCart(GameType.CSGO);
+				ShoppingCart cart3 = new ShoppingCart(GameType.CSGO);
+				shoppingCartRepo.save(cart1);
+				shoppingCartRepo.save(cart2);
+				shoppingCartRepo.save(cart3);
+			
 				inventory1.addItemToInventory(item1);
 				inventory2.addItemToInventory(item2);
 				inventory3.addItemToInventory(item3);
@@ -82,12 +89,15 @@ public class JavaSkinsMarketplaceApplication {
 				inventoryRepo.save(inventory2);
 				inventoryRepo.save(inventory3);
 				
-				User user1 = new User("peteris.inukels@gmail.com", "Inkulens", "snelukni111", "liepu iela 4", true, 0.0, inventory1);
-				User user2 = new User("marks.iemesls@gmail.com", "Mar1ks", "11markusins", "sportu iela 1", true, 100.0, inventory2);
-				User user3 = new User("grieta.skata@gmail.com", "Grietas", "grieta.111", "auzu iela 6", true, 1.0, inventory3);
+				User user1 = new User("peteris.inukels@gmail.com", "Inkulens", "snelukni111", "liepu iela 4", true, 0.0, inventory1, cart1);
+				User user2 = new User("marks.iemesls@gmail.com", "Mar1ks", "11markusins", "sportu iela 1", true, 100.0, inventory2, cart2);
+				User user3 = new User("grieta.skata@gmail.com", "Grietas", "grieta.111", "auzu iela 6", true, 1.0, inventory3, cart3);
 				userRepo.save(user1);
 				userRepo.save(user2);
 				userRepo.save(user3);
+				
+			
+				
 				
 			}
 		};

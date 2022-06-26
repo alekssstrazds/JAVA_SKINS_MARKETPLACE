@@ -83,11 +83,32 @@ public class Item {
 	private Market market;
 	
 	//Saite uz ShoppingCart
-	@ManyToMany
-	@JoinTable(joinColumns=@JoinColumn(name="ItemID"),
-	inverseJoinColumns=@JoinColumn(name="CartID"))
-	private Collection<ShoppingCart> carts = new ArrayList<ShoppingCart>();
+	@ManyToOne
+	@JoinColumn(name="CartID")
+	private ShoppingCart shoppingCart;
+	
 
+	public Item(ItemSubType itemSubType, String itemName, int patternIDs, double itemFloat,
+			double itemSuggestedPrice, double itemSalePrice, ItemType itemType,
+			ItemRarity itemRarity, ItemQuality itemQuality, Inventory inventoryItem, Market market,
+			ShoppingCart shoppingCart) {
+		super();
+		this.itemSubType = itemSubType;
+		this.itemName = itemName;
+		this.patternIDs = patternIDs;
+		this.itemFloat = itemFloat;
+		this.itemSuggestedPrice = itemSuggestedPrice;
+		this.itemSalePrice = itemSalePrice;
+		
+		this.itemType = itemType;
+		this.itemRarity = itemRarity;
+		this.itemQuality = itemQuality;
+		
+		this.inventoryItem = inventoryItem;
+		this.market = market;
+		this.shoppingCart = shoppingCart;
+	}
+	
 	public Item(ItemSubType itemSubType, String itemName, int patternIDs, double itemFloat,
 			double itemSuggestedPrice, double itemSalePrice, ItemType itemType,
 			ItemRarity itemRarity, ItemQuality itemQuality) {
@@ -102,6 +123,7 @@ public class Item {
 		this.itemType = itemType;
 		this.itemRarity = itemRarity;
 		this.itemQuality = itemQuality;
+		
 	}
 	
 	

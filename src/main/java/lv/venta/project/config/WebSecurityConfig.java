@@ -30,9 +30,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/", "/item/**", "/login", "/market").permitAll()
+				.antMatchers("/", "/item/**", "/login", "/market/**").permitAll()
 		        .antMatchers("/h2/**").permitAll()
-		        .antMatchers("/customer/**").hasAuthority("ADMIN")
+		        .antMatchers("/admin/**").hasRole("ADMIN")
 				.anyRequest().authenticated()
 			.and()
 				.formLogin()
@@ -46,7 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	     http.headers().frameOptions().disable();
 	     http.headers().frameOptions().sameOrigin();
 	     
-	     
 	}
 	
 	@Override
@@ -57,4 +56,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.usersByUsernameQuery("select username, password, active from usr where username=?")
 			.authoritiesByUsernameQuery("select u.username, ur.role from usr u inner join userRole ur on u.id = ur.userId where u.username=?");
 	}
+	
+	@Override
+	  public void configure(WebSecurity web) {
+	    web.ignoring()
+	        .antMatchers("/resources/**");
+	  }
 }

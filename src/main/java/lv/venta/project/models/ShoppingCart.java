@@ -1,5 +1,6 @@
 package lv.venta.project.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Id;
@@ -38,8 +40,13 @@ public class ShoppingCart {
 	private User user;
 	
 	//Saite uz item
-	@ManyToMany(mappedBy="carts")
-	private Collection<Item> items;
+	@OneToMany(mappedBy="shoppingCart")
+	@ToString.Exclude
+	private Collection<Item> cartItems = new ArrayList<Item>();
+	
+	public void addItemToCart(Item item) {
+		this.cartItems.add(item);
+	}
 
 	public ShoppingCart(GameType gameType) {
 		super();
