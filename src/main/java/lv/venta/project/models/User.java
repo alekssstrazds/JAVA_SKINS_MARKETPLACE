@@ -1,7 +1,14 @@
 package lv.venta.project.models;
 
+import java.util.Set;
+
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -63,6 +70,11 @@ public class User {
 	@OneToOne
 	@JoinColumn(name="CartID")
 	private ShoppingCart shoppingCart;
+	
+	@ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
+	@CollectionTable(name = "userRole", joinColumns = @JoinColumn(name = "userId"))
+	@Enumerated(EnumType.STRING)
+	private Set<Roles> role;
 
 	public User(String email, String username, String password, String address, boolean active, double balance, Inventory inventory, ShoppingCart shoppingCart) {
 		super();
@@ -79,6 +91,7 @@ public class User {
 	public boolean getActive() {
 		return this.active;
 	}
+	
 	@Override
 	public String toString() {
 		return "User [userID=" + userID + ", email=" + email + ", username=" + username + ", password=" + password

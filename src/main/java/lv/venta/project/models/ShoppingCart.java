@@ -52,4 +52,11 @@ public class ShoppingCart {
 		super();
 		this.gameType = gameType;
 	}
+
+	@Override
+	public String toString() {
+		return "ShoppingCart [cartID=" + cartID + ", gameType=" + gameType + ", cartItems=" + cartItems + "]";
+	}
+	
+	
 }

@@ -65,7 +65,8 @@ public class ItemServiceImpl implements IItemService{
 	@Override
 	public Item insertNewItem(Item item) {
 		Item newItem = new Item(item.getItemSubType(), item.getItemName(), item.getPatternIDs(), item.getItemFloat(), item.getItemSuggestedPrice(),
-				item.getItemSalePrice(), item.getItemType(), item.getItemRarity(), item.getItemQuality());
+				item.getItemSalePrice(), item.getItemType(), item.getItemRarity(), item.getItemQuality(), item.getInventoryItem(), 
+				item.getMarket(), item.getShoppingCart());
 		Item itemFromDB = itemRepo.save(newItem);
 		return itemFromDB;
 	}

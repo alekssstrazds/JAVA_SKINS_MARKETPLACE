@@ -1,4 +1,4 @@
-/*package lv.venta.project.controllers;
+package lv.venta.project.controllers;
 
 import java.util.Collections;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class RegistrationController {
 	public String addUser(User user, Map<String, Object> model) {
 		User userFromDb = userRepo.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		if(userFromDb != null) {
-			model.put("message", "User exists!");
+			//model.put("message", "User exists!");
 			return "registration-page";
 		}
 		user.setActive(true);
@@ -36,5 +36,4 @@ public class RegistrationController {
 		
 		return "redirect:/login";
 	}
-
-}*/
+}

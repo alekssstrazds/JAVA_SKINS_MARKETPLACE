@@ -24,13 +24,13 @@ public class MarketController {
 	@Autowired
 	private IItemService itemService;
 	
-	@GetMapping("/s")
+	@GetMapping("/")
 	public String getAllItems(Model model) {
 		try
 		{
 			ArrayList<Item> list = itemService.getAllItem();
 			model.addAttribute("package-all", list);
-			return "all-items-page";
+			return "market-page";
 		}
 		catch (Exception e) {
 			model.addAttribute("errorMsg", e.getMessage());

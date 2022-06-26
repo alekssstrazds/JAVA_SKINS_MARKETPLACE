@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+	<body>
+	<p>All users: </p>
+	 <table>
+		<tr th:each="user : ${package-user}">
+		<td th:text="${user.getUserID()}" > </td>
+		<td th:text="${user.getEmail()}" > </td>
+		<td th:text="${user.getUsername()}" > </td>
+		<td th:text="${user.getPassword()}" > </td>
+		<td th:text="${user.getBalance()}" > </td>
+		</tr>
+      </table>
+	</body>
+</html>

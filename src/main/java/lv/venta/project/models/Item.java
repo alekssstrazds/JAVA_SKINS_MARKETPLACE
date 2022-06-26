@@ -108,22 +108,13 @@ public class Item {
 		this.market = market;
 		this.shoppingCart = shoppingCart;
 	}
-	
-	public Item(ItemSubType itemSubType, String itemName, int patternIDs, double itemFloat,
-			double itemSuggestedPrice, double itemSalePrice, ItemType itemType,
-			ItemRarity itemRarity, ItemQuality itemQuality) {
-		super();
-		this.itemSubType = itemSubType;
-		this.itemName = itemName;
-		this.patternIDs = patternIDs;
-		this.itemFloat = itemFloat;
-		this.itemSuggestedPrice = itemSuggestedPrice;
-		this.itemSalePrice = itemSalePrice;
-		
-		this.itemType = itemType;
-		this.itemRarity = itemRarity;
-		this.itemQuality = itemQuality;
-		
+
+	@Override
+	public String toString() {
+		return "Item [itemName=" + itemName + ", patternIDs=" + patternIDs + ", itemFloat=" + itemFloat
+				+ ", itemSuggestedPrice=" + itemSuggestedPrice + ", itemSalePrice=" + itemSalePrice + ", itemSubType="
+				+ itemSubType + ", itemType=" + itemType + ", itemRarity=" + itemRarity + ", itemQuality=" + itemQuality
+				+ ", inventoryItem=" + inventoryItem + ", market=" + market + ", shoppingCart=" + shoppingCart + "]";
 	}
 	
 	

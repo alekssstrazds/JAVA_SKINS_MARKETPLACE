@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <p>Ludzu ievadiet jaunu lietotāju:</p>
+        <form action="#" th:action="@{admin/user_add}" th:object="${user}" method="post">
+        <table>
+            <tr>
+                <td> Ievadīt username:</td>
+                <td> <input type="text" th:field="*{username}"></td>
+                <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</td>
+            </tr>
+
+            <tr>
+                <td> Ievadīt password:</td>
+                <td> <input type="text" th:field="*{password}"></td>
+                <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</td>
+            </tr>
+            
+             <tr>
+                <td> Ievadīt email:</td>
+                <td> <input type="text" th:field="*{email}"></td>
+                <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</td>
+            </tr>
+
+        </table>
+            <button type="submit">Saglabāt</button>
+        </form>
+    </body>
+</html>

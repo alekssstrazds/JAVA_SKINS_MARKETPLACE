@@ -6,12 +6,14 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import lv.venta.project.models.Item;
 import lv.venta.project.models.ItemQuality;
 import lv.venta.project.models.ItemRarity;
 import lv.venta.project.models.ItemType;
 
+@Repository
 public interface IItemRepo extends CrudRepository<Item, Integer>, JpaSpecificationExecutor<Item> {
 
 	Specification<Item> findAllByitemName(String search);
